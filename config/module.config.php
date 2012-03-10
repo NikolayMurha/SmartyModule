@@ -4,14 +4,20 @@ return array(
         'instance' => array(
             'alias' => array(
                 // entity manager
-                'smarty_renderer' => 'Smarty\View\Renderer\SmartyRenderer',
+                'smarty_engine' => 'Smarty',
                 //'smarty_strategy' => 'Smarty\View\Strategy\SmartyStrategy',
             ),
-            /*'Smarty\View\Renderer\SmartyRenderer' => array(
+            'SmartyModule\View\Renderer\SmartyRenderer' => array(
                 'parameters' => array(
-                    'resolver' => 'Zend\View\Resolver\AggregateResolver',
+                    'smarty' => 'smarty_engine',
                 ),
             ),
+           'smarty_engine' => array(
+               'parameters' =>array(
+                   'compile_dir' => realpath(__DIR__ . '/../../../data/SmartyModule/templates_c'),
+               )
+           )
+            /*
             'Zend\View\Resolver\TemplatePathStack' => array(
                 'parameters' => array(
                     'defaultSuffix' => 'tpl',

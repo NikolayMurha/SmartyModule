@@ -27,8 +27,11 @@ Zend\View\Variables;*/
 
 class SmartyRenderer extends PhpRenderer
 {
-
+    /**
+     * @var \Smarty $smarty
+     */
     protected $smarty;
+    protected $config;
 
     private $__file = null;
     private $__templates = array();
@@ -37,7 +40,14 @@ class SmartyRenderer extends PhpRenderer
 
     public function init()
     {
-        $this->smarty = new \Smarty();
+        //$this->setSmarty(new \Smarty());
+    }
+
+    /**
+     * @param \Smarty $smarty
+     */
+    public function setSmarty($smarty) {
+        $this->smarty = $smarty;
         $this->smarty->assign('this', $this);
     }
 
