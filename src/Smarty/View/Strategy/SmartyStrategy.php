@@ -5,12 +5,12 @@
  * Date: 05.03.12
  * Time: 11:32
  */
-namespace Smarty\View\Strategy;
+namespace SmartyModule\View\Strategy;
 
 use Zend\EventManager\EventCollection,
     Zend\EventManager\ListenerAggregate,
     Zend\View\ViewEvent,
-    Smarty\View\Renderer\SmartyRenderer;
+    SmartyModule\View\Renderer\SmartyRenderer;
 
 class SmartyStrategy implements ListenerAggregate
 {

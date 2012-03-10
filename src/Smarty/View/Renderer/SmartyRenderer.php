@@ -6,7 +6,7 @@
  * Time: 16:52
  */
 
-namespace Smarty\View\Renderer;
+namespace SmartyModule\View\Renderer;
 
 use Zend\Filter\FilterChain,
     Zend\View\Renderer\PhpRenderer,
