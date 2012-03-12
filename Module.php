@@ -8,38 +8,36 @@ use Zend\Module\Manager,
 
 class Module implements AutoloaderProvider
 {
-    protected $app;
-
     public function init($manager)
     {
         // Register a bootstrap event
         $events = StaticEventManager::getInstance();
-        $events->attach('bootstrap', 'bootstrap', array($this, 'bootstrap'));
+        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'));
     }
 
     /**
      * @param \Zend\EventManager\Event $e
      */
-    public function bootstrap($e)
+    public function initializeView($e)
     {
-
-
         // Register a render event
         $app = $e->getParam('application');
-        $this->app = $app;
-        $app->events()->attach('render', array($this, 'registerSmartyStrategy'), 100);
-        $app->events()->attach('render', array($this, 'initView'), 99);
-    }
+        $locator = $app->getLocator();
 
-    public function initView($e) {
-        $locator = $this->app->getLocator();
-
-        $basePath     = $this->app->getRequest()->getBasePath();
         $renderer     = $locator->get('SmartyModule\View\Renderer\SmartyRenderer');
-        $renderer->plugin('url')->setRouter($this->app->getRouter());
-        $renderer->doctype()->setDoctype('HTML5');
-        $renderer->plugin('basePath')->setBasePath($basePath);
+
+        /*$renderer->plugin('url')->setRouter($app->getRouter());
+
+        //set up Doctype helper
+        $renderer->plugin('doctype')->setDoctype('HTML5');
+
+        //set up BasePath helper
+        $basePath = $app->getRequest()->getBasePath();
+        $renderer->plugin('basePath')->setBasePath($basePath);*/
+        //attach strategy
+        $app->events()->attach('render', array($this, 'registerSmartyStrategy'), 100);
     }
+
     /**
      * @param \Zend\View\ViewEvent $e
      */

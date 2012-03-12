@@ -4,8 +4,8 @@ return array(
         'instance' => array(
             'alias' => array(
                 // entity manager
+                'view' => 'SmartyModule\View\Renderer\SmartyRenderer',
                 'smarty_engine' => 'Smarty',
-                //'smarty_strategy' => 'Smarty\View\Strategy\SmartyStrategy',
             ),
             'SmartyModule\View\Renderer\SmartyRenderer' => array(
                 'parameters' => array(
@@ -17,12 +17,6 @@ return array(
                    'compile_dir' => realpath(__DIR__ . '/../../../data/SmartyModule/templates_c'),
                )
            )
-            /*
-            'Zend\View\Resolver\TemplatePathStack' => array(
-                'parameters' => array(
-                    'defaultSuffix' => 'tpl',
-                 ),
-            ),*/
         ),
     ),
 );

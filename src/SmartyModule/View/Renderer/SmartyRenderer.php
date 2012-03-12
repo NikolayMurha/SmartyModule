@@ -15,16 +15,6 @@ use Zend\Filter\FilterChain,
     Zend\View\Exception,
     ArrayAccess;
 
-/*
-use ArrayAccess,
-Zend\Filter\FilterChain,
-Zend\Loader\Pluggable,
-Zend\View\Exception,
-Zend\View\HelperBroker,
-Zend\View\Renderer,
-Zend\View\Resolver,
-Zend\View\Variables;*/
-
 class SmartyRenderer extends PhpRenderer
 {
     /**
