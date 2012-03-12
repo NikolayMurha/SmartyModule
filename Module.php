@@ -12,45 +12,38 @@ class Module implements AutoloaderProvider
     {
         // Register a bootstrap event
         $events = StaticEventManager::getInstance();
-        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'));
+        $events->attach('bootstrap', 'bootstrap', array($this, 'setupView'));
     }
 
     /**
+     * @param $e
      * @param \Zend\EventManager\Event $e
+
      */
-    public function initializeView($e)
+    public function setupView($e)
     {
         // Register a render event
-        $app = $e->getParam('application');
-        $locator = $app->getLocator();
+        $application = $e->getParam('application');
+        $locator             = $application->getLocator();
 
-        $renderer     = $locator->get('SmartyModule\View\Renderer\SmartyRenderer');
+        $view                = $locator->get('Zend\View\View');
+        $smartyRendererStrategy = $locator->get('SmartyModule\View\Strategy\SmartyStrategy');
+        $view->events()->attachAggregate($smartyRendererStrategy, 100);
 
-        /*$renderer->plugin('url')->setRouter($app->getRouter());
+        /**
+         * Set Up helpers
+         */
+        $renderer = $smartyRendererStrategy->getRenderer();
+        $renderer->plugin('url')->setRouter($application->getRouter());
 
         //set up Doctype helper
         $renderer->plugin('doctype')->setDoctype('HTML5');
 
         //set up BasePath helper
-        $basePath = $app->getRequest()->getBasePath();
-        $renderer->plugin('basePath')->setBasePath($basePath);*/
-        //attach strategy
-        $app->events()->attach('render', array($this, 'registerSmartyStrategy'), 100);
+        $basePath = $application->getRequest()->getBasePath();
+        $renderer->plugin('basePath')->setBasePath($basePath);
     }
 
-    /**
-     * @param \Zend\View\ViewEvent $e
-     */
-    public function registerSmartyStrategy($e)
-    {
-        $app          = $e->getTarget();
-        $locator      = $app->getLocator();
-        $view         = $locator->get('Zend\View\View');
-        $smartyStrategy = $locator->get('SmartyModule\View\Strategy\SmartyStrategy');
-
-        // Attach strategy, which is a listener aggregate, at high priority
-        $view->events()->attach($smartyStrategy, 100);
-    }
 
     public function getAutoloaderConfig()
     {

@@ -23,14 +23,13 @@ class SmartyStrategy implements ListenerAggregate
         $this->renderer = $renderer;
     }
 
-
     /**
      * Attach one or more listeners
      *
      * Implementors may add an optional $priority argument; the EventManager
      * implementation will pass this to the aggregate.
      *
-     * @param EventCollection $events
+     * @param \SmartyModule\View\Strategy\EventCollection|\Zend\EventManager\EventCollection $events
      * @param int $priority
      */
     public function attach(EventCollection $events, $priority = 1)
@@ -61,7 +60,7 @@ class SmartyStrategy implements ListenerAggregate
     /**
      * Retrieve the composed renderer
      *
-     * @param ViewEvent $e
+     * @param \SmartyModule\View\Strategy\ViewEvent|\Zend\View\ViewEvent $e
      * @return SmartyRenderer
      */
     public function selectRenderer(ViewEvent $e)
@@ -75,7 +74,7 @@ class SmartyStrategy implements ListenerAggregate
      * Populates the content of the response object from the view rendering
      * results.
      *
-     * @param  ViewEvent $e
+     * @param \SmartyModule\View\Strategy\ViewEvent|\Zend\View\ViewEvent $e
      * @return void
      */
     public function injectResponse(ViewEvent $e)
