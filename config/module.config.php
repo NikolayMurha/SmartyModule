@@ -15,7 +15,6 @@ return array(
             'SmartyModule\View\Renderer\SmartyRenderer' => array(
                 'parameters' => array(
                     'smarty' => 'smarty_engine',
-                    'resolver' => 'Zend\View\Resolver\AggregateResolver',
                 ),
             ),
 
