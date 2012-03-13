@@ -29,19 +29,6 @@ class Module implements AutoloaderProvider
         $view                = $locator->get('Zend\View\View');
         $smartyRendererStrategy = $locator->get('SmartyModule\View\Strategy\SmartyStrategy');
         $view->events()->attachAggregate($smartyRendererStrategy, 100);
-
-        /**
-         * Set Up helpers
-         */
-        $renderer = $smartyRendererStrategy->getRenderer();
-        $renderer->plugin('url')->setRouter($application->getRouter());
-
-        //set up Doctype helper
-        $renderer->plugin('doctype')->setDoctype('HTML5');
-
-        //set up BasePath helper
-        $basePath = $application->getRequest()->getBasePath();
-        $renderer->plugin('basePath')->setBasePath($basePath);
     }
 
 
