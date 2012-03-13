@@ -20,7 +20,7 @@ return array(
 
             'smarty_engine' => array(
                 'parameters' => array(
-                    'compile_dir' => realpath(__DIR__ . '/../../../data/SmartyModule/templates_c'),
+                    'compile_dir' => __DIR__ . '/../../../data/SmartyModule/templates_c',
                 )
             )
         ),
