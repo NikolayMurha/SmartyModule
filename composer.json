@@ -1,0 +1,7 @@
+{
+    "name": "NikolayMurga/smarty-module",
+    "require": {
+        "zendframework/zendframework": "2.0.5",
+        "smarty/smarty": "v3.1.12"
+    }
+}
