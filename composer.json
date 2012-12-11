@@ -5,28 +5,6 @@
         "zendframework/zendframework": "2.0.5",
         "smarty/smarty": "3.1.*"
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "smarty/smarty",
-                "version": "3.1.12",
-                "dist": {
-                    "url": "http://www.smarty.net/files/Smarty-3.1.12.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "http://smarty-php.googlecode.com/svn/",
-                    "type": "svn",
-                    "reference": "tags/Smarty_3_1_12/distribution/"
-                },
-                "autoload": {
-                    "classmap": ["libs/"]
-                }
-            }
-        }
-    ],
-    "stability": "stable",
     "authors": [
         {
             "name": "Murga Nikolay",
