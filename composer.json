@@ -10,5 +10,10 @@
             "name": "Murga Nikolay",
             "email": "nikolay.m@randrmusic.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "DoctrineModule\\": "src/"
+        }
+    }
 }
