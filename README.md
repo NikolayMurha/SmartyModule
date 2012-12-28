@@ -2,6 +2,8 @@
 
 SmartyModule is a module that integrates the Smarty templating engine with Zend Framework 2.
 
+Version: 1.0.0
+
 ## Istallation
 
 ### Composer
