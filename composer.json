@@ -1,6 +1,6 @@
 {
     "name": "murganikolay/smarty-module",
-    "description": "Smarty template engine module for Zend Framework 2 ",
+    "description": "Smarty template engine module for Zend Framework 2",
     "homepage": "https://github.com/MurgaNikolay/SmartyModule",
     "type": "library",
     "keywords": [
