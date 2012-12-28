@@ -7,44 +7,22 @@
  */
 namespace SmartyModule\View\Strategy;
 
-use Zend\EventManager\EventCollection,
-    Zend\EventManager\ListenerAggregate,
-    Zend\View\ViewEvent,
-    SmartyModule\View\Renderer\SmartyRenderer;
+use SmartyModule\View\Renderer\SmartyRenderer;
+use Zend\EventManager\ListenerAggregateInterface;
+use Zend\EventManager\EventManagerInterface;
+use Zend\View\ViewEvent;
 
-class SmartyStrategy implements ListenerAggregate
+class SmartyStrategy implements ListenerAggregateInterface
 {
     protected $view;
 
     protected $viewListener;
 
+    protected $listeners;
+
     public function __construct(SmartyRenderer $renderer)
     {
         $this->renderer = $renderer;
-    }
-
-    /**
-     * Attach one or more listeners
-     *
-     * Implementors may add an optional $priority argument; the EventManager
-     * implementation will pass this to the aggregate.
-     *
-     * @param \SmartyModule\View\Strategy\EventCollection|\Zend\EventManager\EventCollection $events
-     * @param int $priority
-     */
-    public function attach(EventCollection $events, $priority = 1)
-    {
-        $this->listeners[] = $events->attach('renderer', array($this, 'selectRenderer'), $priority);
-        $this->listeners[] = $events->attach('response', array($this, 'injectResponse'), $priority);
-    }
-
-    public function detach(EventCollection $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
     }
 
     /**
@@ -60,7 +38,7 @@ class SmartyStrategy implements ListenerAggregate
     /**
      * Retrieve the composed renderer
      *
-     * @param \SmartyModule\View\Strategy\ViewEvent|\Zend\View\ViewEvent $e
+     * @param \Zend\View\ViewEvent $e
      * @return SmartyRenderer
      */
     public function selectRenderer(ViewEvent $e)
@@ -74,7 +52,7 @@ class SmartyStrategy implements ListenerAggregate
      * Populates the content of the response object from the view rendering
      * results.
      *
-     * @param \SmartyModule\View\Strategy\ViewEvent|\Zend\View\ViewEvent $e
+     * @param \Zend\View\ViewEvent $e
      * @return void
      */
     public function injectResponse(ViewEvent $e)
@@ -86,5 +64,35 @@ class SmartyStrategy implements ListenerAggregate
         $result   = $e->getResult();
         $response = $e->getResponse();
         $response->setContent($result);
+    }
+
+    /**
+     * Attach one or more listeners
+     *
+     * Implementors may add an optional $priority argument; the EventManager
+     * implementation will pass this to the aggregate.
+     *
+     * @param EventManagerInterface $events
+     * @param int $priority
+     * @return void
+     */
+    public function attach(EventManagerInterface $events, $priority = 1)
+    {
+        $this->listeners[] = $events->attach(ViewEvent::EVENT_RENDERER, array($this, 'selectRenderer'), $priority);
+        $this->listeners[] = $events->attach(ViewEvent::EVENT_RESPONSE, array($this, 'injectResponse'), $priority);
+    }
+
+    /**
+     * Detach all previously attached listeners
+     *
+     * @param EventManagerInterface $events
+     */
+    public function detach(EventManagerInterface $events)
+    {
+        foreach ($this->listeners as $index => $listener) {
+            if ($events->detach($listener)) {
+                unset($this->listeners[$index]);
+            }
+        }
     }
 }

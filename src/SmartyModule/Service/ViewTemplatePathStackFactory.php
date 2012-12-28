@@ -1,11 +1,32 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: Nikolay
- * Date: 28.12.12
- * Time: 14:58
- * To change this template use File | Settings | File Templates.
- */ 
-class TemplatePathStack {
 
+namespace SmartyModule\Service;
+
+
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class ViewTemplatePathStackFactory extends \Zend\Mvc\Service\ViewTemplatePathStackFactory
+{
+
+    /**
+     * Create service
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return mixed
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+
+        $templatePathStack = parent::createService($serviceLocator);
+
+        $config = $serviceLocator->get('Config');
+        if (is_array($config) && isset($config['view_manager'])) {
+            $config = $config['view_manager'];
+            if (is_array($config) && isset($config['default_suffix'])) {
+                $templatePathStack->setDefaultSuffix($config['default_suffix']);
+            }
+
+        }
+        return $templatePathStack;
+    }
 }

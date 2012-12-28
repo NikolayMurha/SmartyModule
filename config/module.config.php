@@ -1,24 +1,42 @@
 <?php
+
 return array(
+    'view_manager' => array(
+        'default_suffix' => 'tpl',
+        'strategies' => array(
+            'SmartyStrategy'
+        )
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'ViewTemplatePathStack' => 'SmartyModule\Service\ViewTemplatePathStackFactory',
+        ),
+        'aliases' => array()
+    ),
     'di' => array(
         'instance' => array(
             'alias' => array(
-                // entity manager
-                'smarty_engine' => 'Smarty',
+                'SmartyRenderer' => 'SmartyModule\View\Renderer\SmartyRenderer',
+                'SmartyStrategy' => 'SmartyModule\View\Strategy\SmartyStrategy',
+                'ViewResolver' => 'Zend\Mvc\Service\ViewResolverFactory',
+                'ViewHelperManager' => 'Zend\Mvc\Service\ViewResolverFactory',
             ),
 
-            'SmartyModule\View\Renderer\SmartyStrategy' => array(
+            'SmartyStrategy' => array(
                 'parameters' => array(
-                    'smarty' => 'SmartyModule\View\Renderer\SmartyRenderer',
-                ),
-            ),
-            'SmartyModule\View\Renderer\SmartyRenderer' => array(
-                'parameters' => array(
-                    'smarty' => 'smarty_engine',
+                    'renderer' => 'SmartyRenderer',
                 ),
             ),
 
-            'smarty_engine' => array(
+            'SmartyRenderer' => array(
+                'parameters' => array(
+                    'smarty' => 'Smarty',
+                    'resolver' => 'ViewResolver',
+                    'helpers' => 'ViewHelperManager',
+                ),
+            ),
+
+            'Smarty' => array(
                 'parameters' => array(
                     'compile_dir' => __DIR__ . '/../../../data/SmartyModule/templates_c',
                 )
