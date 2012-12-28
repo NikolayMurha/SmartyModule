@@ -2,7 +2,7 @@
     "name": "murganikolay/smarty-module",
     "description": "Zend Framework Smarty module",
     "require": {
-        "zendframework/zendframework": "2.0.5",
+        "zendframework/zendframework": "2.*",
         "smarty/smarty": "3.1.*"
     },
     "authors": [

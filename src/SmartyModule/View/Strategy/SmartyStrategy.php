@@ -1,9 +1,9 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: Murga Nikolay work@murga.kiev.ua
- * Date: 05.03.12
- * Time: 11:32
+ * @link        https://github.com/MurgaNikolay/SmartyModule for the canonical source repository
+ * @license     http://framework.zend.com/license/new-bsd New BSD License
+ * @author      Murga Nikolay <work@murga.kiev.ua>
+ * @package     SmartyModule
  */
 namespace SmartyModule\View\Strategy;
 
