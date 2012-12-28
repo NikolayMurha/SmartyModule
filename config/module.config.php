@@ -6,6 +6,12 @@
  * @package     SmartyModule
  */
 
+
+$dataDir = __DIR__ . '/../../../../data';
+if (!is_dir($dataDir)) {
+    $dataDir = __DIR__ . '/../../../data';
+}
+
 return array(
     'view_manager' => array(
         'default_suffix' => 'tpl',
@@ -43,7 +49,7 @@ return array(
 
             'Smarty' => array(
                 'parameters' => array(
-                    'compile_dir' => __DIR__ . '/../../../data/SmartyModule/templates_c',
+                    'compile_dir' => $dataDir . '/SmartyModule/templates_c',
                 ),
             ),
         ),
