@@ -19,7 +19,7 @@ SmartyModule is a module that integrates the Smarty templating engine with Zend 
 
 ### Configuration
 
-Change you Application config like this (additional info: [Zend\View](http://framework.zend.com/manual/2.0/en/modules/zend.view.quick-start.html "Zend\View")):
+Change you Application config like this:
     
     ...
     'view_manager' => array(
@@ -41,3 +41,5 @@ Change you Application config like this (additional info: [Zend\View](http://fra
     ),
     ...
 
+
+Aditional info about view manager: [Zend\View](http://framework.zend.com/manual/2.0/en/modules/zend.view.quick-start.html "Zend\View").
