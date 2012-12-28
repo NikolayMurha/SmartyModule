@@ -15,10 +15,15 @@ if (!is_dir($dataDir)) {
 return array(
     'view_manager' => array(
         'default_suffix' => 'tpl',
+
+        /**
+         * Register the view strategy with the view manager. This is required!
+         */
         'strategies' => array(
             'SmartyStrategy'
         ),
     ),
+
     'service_manager' => array(
         'factories' => array(
             'ViewTemplatePathStack' => 'SmartyModule\Service\ViewTemplatePathStackFactory',
