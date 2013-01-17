@@ -3,6 +3,7 @@
     "description": "Smarty template engine module for Zend Framework 2",
     "homepage": "https://github.com/MurgaNikolay/SmartyModule",
     "type": "library",
+    
     "keywords": [
         "zf2",
         "zend",
@@ -11,8 +12,9 @@
         "view"
     ],
     "require": {
+        "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
-	"smarty/smarty": "dev-trunk"
+        "smarty/smarty": "3.1.*"
     },
     "authors": [
         {
