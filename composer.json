@@ -3,7 +3,7 @@
     "description": "Smarty template engine module for Zend Framework 2",
     "homepage": "https://github.com/MurgaNikolay/SmartyModule",
     "type": "library",
-    
+    "license": "MIT",
     "keywords": [
         "zf2",
         "zend",

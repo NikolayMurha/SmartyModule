@@ -8,7 +8,7 @@ Version: 1.0.0
 
 ### Composer
 
-1. Add `"murganikolay/smarty-module": "dev-master"` to your `composer.json` file and run php composer.phar update.
+1. Add `"murganikolay/smarty-module": "1.0.0"` to your `composer.json` file and run php composer.phar update.
 2. Add SmartyModule to your `config/application.config.php` file under the modules key.
 
 ### Manual
