@@ -14,7 +14,7 @@ if (!is_dir($dataDir)) {
 
 return array(
     'view_manager' => array(
-        'default_suffix' => 'tpl',
+        'smarty_default_suffix' => 'tpl',
 
         /**
          * Register the view strategy with the view manager. This is required!
@@ -30,7 +30,9 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'ViewTemplatePathStack' => 'SmartyModule\Service\ViewTemplatePathStackFactory',
+            'SmartyViewResolver' => 'SmartyModule\Service\SmartyViewTemplatePathStackFactory',
+            'SmartyViewTemplateMapResolver' => 'SmartyModule\Service\SmartyViewTemplateMapResolverFactory',
+            'SmartyViewTemplatePathStack' => 'SmartyModule\Service\SmartyViewTemplatePathStackFactory',
             'SmartyRenderer' => 'SmartyModule\Service\SmartyRendererFactory',
             'SmartyStrategy' => 'SmartyModule\Service\SmartyStrategyFactory',
         )
