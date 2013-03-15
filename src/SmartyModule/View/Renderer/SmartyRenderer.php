@@ -133,6 +133,7 @@ class SmartyRenderer extends PhpRenderer
                     $this->__template
                 ));
             }
+            $this->smarty->setTemplateDir(dirname($this->__file));
             $this->__content = $this->smarty->fetch($this->__file);
         }
         return $this->getFilterChain()->filter($this->__content); // filter output
