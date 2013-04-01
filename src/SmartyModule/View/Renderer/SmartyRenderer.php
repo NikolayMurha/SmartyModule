@@ -41,6 +41,11 @@ class SmartyRenderer extends PhpRenderer
      * @var string
      */
     private $__content = '';
+    
+     /**
+     * @var array Temporary variable stack; used when variables passed to render()
+     */
+    private $__varsCache = array();
 
     /**
      *
@@ -110,6 +115,8 @@ class SmartyRenderer extends PhpRenderer
         // find the script file name using the parent private method
         $this->addTemplate($nameOrModel);
         unset($nameOrModel); // remove $name from local scope
+        
+        $this->__varsCache[] = $this->vars();
 
         if (null !== $values) {
             $this->setVars($values);
@@ -135,6 +142,9 @@ class SmartyRenderer extends PhpRenderer
             }
             $this->__content = $this->smarty->fetch($this->__file);
         }
+        
+        $this->setVars(array_pop($this->__varsCache));
+        
         return $this->getFilterChain()->filter($this->__content); // filter output
     }
 
