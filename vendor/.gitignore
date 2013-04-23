@@ -1,4 +1,5 @@
 # Add here the vendor path to be whitelisted
 # Ex: for composer directory write here "!composer" (without quotes)
-!.gitignore
 *
+!smarty
+!.gitignore
