@@ -30,7 +30,7 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'SmartyViewResolver' => 'SmartyModule\Service\SmartyViewTemplatePathStackFactory',
+            'SmartyViewResolver' => 'SmartyModule\Service\SmartyViewResolverFactory',
             'SmartyViewTemplateMapResolver' => 'SmartyModule\Service\SmartyViewTemplateMapResolverFactory',
             'SmartyViewTemplatePathStack' => 'SmartyModule\Service\SmartyViewTemplatePathStackFactory',
             'SmartyRenderer' => 'SmartyModule\Service\SmartyRendererFactory',
