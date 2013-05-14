@@ -26,8 +26,8 @@
         "psr-0": {
             "SmartyModule\\": "src/"
         },
-	"classmap": {
+	"classmap": [
 	    "./Module.php"
-	}
+	]
     }
 }
