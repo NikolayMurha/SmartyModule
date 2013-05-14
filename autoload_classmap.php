@@ -9,5 +9,4 @@ return array(
     'SmartyModule\Service\SmartyViewTemplatePathStackFactory'   => __DIR__ . '/src/SmartyModule/Service/SmartyViewTemplatePathStackFactory.php',
     'SmartyModule\View\Renderer\SmartyRenderer'                 => __DIR__ . '/src/SmartyModule/View/Renderer/SmartyRenderer.php',
     'SmartyModule\View\Strategy\SmartyStrategy'                 => __DIR__ . '/src/SmartyModule/View/Strategy/SmartyStrategy.php',
-    'Smarty'                                                    => __DIR__ . '/vendor/smarty/distribution/libs/Smarty.class.php',
 );
