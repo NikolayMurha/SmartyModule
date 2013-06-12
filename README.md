@@ -2,13 +2,13 @@
 
 SmartyModule is a module that integrates the Smarty templating engine with Zend Framework 2.
 
-Version: 1.0.0
+Version: 1.2.0
 
 ## Istallation
 
 ### Composer
 
-1. Add `"murganikolay/smarty-module": "1.0.0"` to your `composer.json` file and run php composer.phar update.
+1. Add `"murganikolay/smarty-module": "1.2.0"` to your `composer.json` file and run php composer.phar update.
 2. Add SmartyModule to your `config/application.config.php` file under the modules key.
 
 ### Manual
@@ -36,6 +36,12 @@ Change you Application config like this:
             'application/index/index' => __DIR__ . '/../view/application/index/index.tpl',
             'error/404'               => __DIR__ . '/../view/error/404.tpl',
             'error/index'             => __DIR__ . '/../view/error/index.tpl',
+        ),
+        'smarty' => array(
+            'error_reporting'=> E_PARSE,
+            'compile_dir' => 'path/to/compile/dir',
+            'cache_dir' => 'path/to/cache/dir',
+            //Other Smarty options
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
