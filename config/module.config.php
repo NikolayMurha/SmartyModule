@@ -22,11 +22,10 @@ return array(
         'strategies' => array(
             'SmartyStrategy'
         ),
-
-        'smarty' => array(
+        'smarty_defaults' => array(
             'compile_dir' => $dataDir . '/SmartyModule/templates_c',
             'error_reporting' => E_ERROR
-        )
+        ),
     ),
     'service_manager' => array(
         'factories' => array(
