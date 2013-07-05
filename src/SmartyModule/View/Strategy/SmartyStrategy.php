@@ -11,6 +11,7 @@ use SmartyModule\View\Renderer\SmartyRenderer;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\View\ViewEvent;
+use Zend\View\Model;
 
 class SmartyStrategy implements ListenerAggregateInterface
 {
@@ -43,6 +44,20 @@ class SmartyStrategy implements ListenerAggregateInterface
      */
     public function selectRenderer(ViewEvent $e)
     {
+    	$model = $e->getModel();
+
+		// this case needs special checking, as JsonModel is a subclass of
+        // ViewModel
+        if($model instanceof Model\JsonModel) {
+            // JsonModel; do nothing
+            return;
+        }
+        
+        if (!$model instanceof Model\ViewModel) {
+            // no ViewModel; do nothing
+            return;
+        }
+    
         return $this->renderer;
     }
 
