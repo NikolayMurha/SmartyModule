@@ -1,7 +1,7 @@
 {
-    "name": "murganikolay/smarty-module",
+    "name": "gkralik/smarty-module",
     "description": "Smarty template engine module for Zend Framework 2",
-    "homepage": "https://github.com/MurgaNikolay/SmartyModule",
+    "homepage": "https://github.com/gkralik/SmartyModule",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -16,12 +16,6 @@
         "zendframework/zendframework": "2.*",
         "smarty/smarty": "3.1.*"
     },
-    "authors": [
-        {
-            "name": "Murga Nikolay",
-            "email": "work@murga.kiev.ua"
-        }
-    ],
     "autoload": {
         "psr-0": {
             "SmartyModule\\": "src/"
