@@ -43,6 +43,7 @@ class SmartyRendererFactory implements  FactoryInterface {
         $helpers = $serviceLocator->get('ViewHelperManager');
 
         $renderer = new SmartyRenderer();
+        $renderer ->setEventManager($serviceLocator->get('EventManager'));
         $renderer ->setSmarty($smarty);
         $renderer ->setResolver($resolver);
         $renderer ->setHelperPluginManager($helpers);

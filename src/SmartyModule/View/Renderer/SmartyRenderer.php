@@ -8,6 +8,7 @@
 
 namespace SmartyModule\View\Renderer;
 
+use Zend\EventManager\EventManager;
 use Zend\View\Renderer\PhpRenderer,
     Zend\View\Exception,
     Zend\View\Model\ModelInterface as Model;
@@ -46,6 +47,11 @@ class SmartyRenderer extends PhpRenderer
      * @var array Temporary variable stack; used when variables passed to render()
      */
     private $__varsCache = array();
+
+    /**
+     * @var EventManager
+     */
+    private $eventManager;
 
     /**
      *
@@ -141,6 +147,7 @@ class SmartyRenderer extends PhpRenderer
                 ));
             }
             $this->smarty->setTemplateDir(dirname($this->__file));
+            $this->getEventManager()->trigger('smarty.fetch.pre', $this);
             $this->__content = $this->smarty->fetch($this->__file);
         }
         
@@ -167,4 +174,38 @@ class SmartyRenderer extends PhpRenderer
         $this->__templates[] = $template;
         return $this;
     }
+
+    /**
+     * @return EventManager
+     */
+    public function getEventManager()
+    {
+        return $this->eventManager;
+    }
+
+    /**
+     * @param EventManager $eventManager
+     */
+    public function setEventManager($eventManager)
+    {
+        $this->eventManager = $eventManager;
+    }
+
+    /**
+     * @return null
+     */
+    public function getFile()
+    {
+        return $this->__file;
+    }
+
+    /**
+     * @param null $_file
+     */
+    public function setFile($_file)
+    {
+        $this->__file = $_file;
+    }
+
+
 }
