@@ -146,7 +146,7 @@ class SmartyRenderer extends PhpRenderer
                     $this->__template
                 ));
             }
-            $this->smarty->setTemplateDir(dirname($this->__file));
+            $this->smarty->addTemplateDir(dirname($this->__file), '__CURRENT__');
             $this->getEventManager()->trigger('smarty.fetch.pre', $this);
             $this->__content = $this->smarty->fetch($this->__file);
         }

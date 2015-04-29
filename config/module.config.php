@@ -17,6 +17,12 @@ return array(
         'smarty_default_suffix' => 'tpl',
 
         /**
+         * set this to true, to inject all path stack directories into smarty
+         * this will allow you to include templates with paths relative to path stack directories
+         */
+        'smarty_set_path_stack_dirs' => false,
+
+        /**
          * Register the view strategy with the view manager. This is required!
          */
         'strategies' => array(
