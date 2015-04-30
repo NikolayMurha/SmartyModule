@@ -207,5 +207,20 @@ class SmartyRenderer extends PhpRenderer
         $this->__file = $_file;
     }
 
+    /**
+     * @return array
+     */
+    public function getTemplate()
+    {
+        return $this->__template;
+    }
+
+    /**
+     * @param array $_template
+     */
+    public function setTemplate($_template)
+    {
+        $this->__template = $_template;
+    }
 
 }
