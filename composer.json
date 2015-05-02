@@ -1,7 +1,7 @@
 {
-    "name": "murganikolay/smarty-module",
+    "name": "maglnet/smarty-module",
     "description": "Smarty template engine module for Zend Framework 2",
-    "homepage": "https://github.com/MurgaNikolay/SmartyModule",
+    "homepage": "https://github.com/maglnet/SmartyModule",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -14,9 +14,13 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
-        "smarty/smarty": "3.1.*"
+        "smarty/smarty": "~3.1"
     },
     "authors": [
+        {
+            "name": "Matthias Glaub",
+            "email": "magl@magl.net"
+        },
         {
             "name": "Murga Nikolay",
             "email": "work@murga.kiev.ua"
