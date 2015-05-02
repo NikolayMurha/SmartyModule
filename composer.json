@@ -27,11 +27,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "SmartyModule\\": "src/"
-        },
-	"classmap": [
-	    "./Module.php"
-	]
+        }
     }
 }
