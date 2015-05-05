@@ -8,7 +8,6 @@
 namespace SmartyModule\View\Strategy;
 
 use SmartyModule\View\Renderer\SmartyRenderer;
-use SmartyModule\View\Model\SmartyModel;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\View\ViewEvent;
@@ -44,11 +43,7 @@ class SmartyStrategy implements ListenerAggregateInterface
      */
     public function selectRenderer(ViewEvent $e)
     {
-        if($e->getModel() instanceof SmartyModel) {
-            return $this->renderer;
-        }
-
-        return false;
+        return $this->renderer;
     }
 
     /**
