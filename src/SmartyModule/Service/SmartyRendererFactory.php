@@ -40,8 +40,7 @@ class SmartyRendererFactory implements  FactoryInterface {
         }
 
         if (isset($config['view_manager'])
-            && isset($config['view_manager']['smarty_set_path_stack_dirs'])
-            && $config['view_manager']['smarty_set_path_stack_dirs']
+            && !empty($config['view_manager']['smarty_set_path_stack_dirs'])
             && isset($config['view_manager']['template_path_stack'])
         ){
                 $smarty->setTemplateDir($config['view_manager']['template_path_stack']);
