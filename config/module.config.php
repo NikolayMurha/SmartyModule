@@ -30,7 +30,7 @@ return array(
         ),
         'smarty_defaults' => array(
             'compile_dir' => $dataDir . '/SmartyModule/templates_c',
-            'error_reporting' => E_ERROR
+            //'error_reporting' => E_ERROR
         ),
     ),
     'service_manager' => array(
