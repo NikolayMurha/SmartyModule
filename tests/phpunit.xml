@@ -1,5 +1,0 @@
-<phpunit bootstrap="bootstrap.php">
-    <testsuite name="SmartyModule Test Suite">
-        <directory>./SmartyModuleTest</directory>
-    </testsuite>
-</phpunit>

@@ -1,3 +1,0 @@
-[submodule "vendor/smarty"]
-	path = vendor/smarty
-	url = https://github.com/smarty-php/smarty.git
